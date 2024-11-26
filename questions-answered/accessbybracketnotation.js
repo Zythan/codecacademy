@@ -54,8 +54,11 @@ const trunk4 = {
                 'etc4' : "Hi There"
              }
           } 
-     }
+     }     
 }
-
 console.log(trunk4['etc']['etc2']['etc3']['etc4'])
 //Hope this helps
+const functest = {
+    'dfunction': () => {console.log('Fun with javascript!')}
+}
+functest['dfunction']()
