@@ -1,0 +1,22 @@
+{
+  "name": "rock-paper-scissors-99",
+  "version": "1.0.0",
+  "description": "## Project Overview",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^6.1.3"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [],
+  "dependencies": {
+    "chai": "^4.4.1",
+    "save-dev": "^0.0.1-security"
+  }
+}
