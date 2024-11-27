@@ -1,5 +1,5 @@
 import {a,b} from '../src/main.js'
-import { expect } from 'chai';
+import { expect } from 'chai'
 
 console.log(a,b)
 

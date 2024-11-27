@@ -1,0 +1,82 @@
+Hello All,
+
+TLDR:
+There was a change made to chai that breaks .required() imports when you try to use them.
+This change was chai is ESM, ES Modules, only now and CJS, comman javascript requires() do not work on them.
+So, Here is a working example of using mocha 10.8.2 and chai 5.1.2 the latest version of each module.
+https://github.com/Zythan/mochachai.git
+
+Story Time::
+
+While going through the course: 
+ Create a Back-End App with JavaScript
+Module:
+ Developing JavaScript Apps Locally
+Section 
+ Reading Test with Mocha and Chai
+
+Since this was just a short description of testing, I decided to look further into it as I haven't really done any unit test in js before.
+Little did I know what a huge can of worms I was opening.
+
+I did the basic look up example/tutorial and run them and would get ESM module Errors from Chai
+
+A little research and the reason this was happening was almost all the examples you can find are using chai 4.?.?
+In version 5.?.? they went to ESM only.
+This means the model.export and required() imports would no longer work with chai.
+You have to use ESM import {} from './filenamehere' and export {someRefrence} or export const function{}
+
+That was easy enough right? You just refactor them...well no
+You also had to add to your package.json "type": "module",
+Again simple enough right? 
+Again no for the life of me I couldn't get it to work correctly.
+Either modules not found or file not found or the sky is blue errors
+
+So I made one of my own from scratch ...it didn't work either
+At this point it was getting late and I shut down for the night.
+
+Next day I start back in on the course and the next code project they have you download has a test folder.
+Oh boy here we go again I am thinking.
+
+So bitting the code binder, I start fresh again after learning alot more about npm module imports and other things.
+First, I go well lets do an old one just using old chai 4.1.1 as the example I was looking at is using.
+Can be found by looking in the package.json to see what dependencies it uses.
+It work! Woot! welll sort of.
+It ran but it threw out half a dozen or more warnings about security issues with 4.1.1.
+Sigh,
+Ok back to scratch again, have to get 5.?.? working
+I simplified main.js to just 2 variables.
+Exported them directly (kiss)
+export let a = 4
+export let b = 2
+
+Built the test.main.js with a the import of a and b and a console.log(a,b)
+import {a,b} from '../src/main.js'
+
+console.log(a,b)
+
+This worked so added 
+describe('My Test Suite', () => {
+  it('Should test a variable', () => {    
+    expect(a).to.be.equal(10);
+  });  
+});
+
+This throws the module can't be found use ESM modules error or change file name...
+Ok more digging into post on chai failing with esm and I find need to add "type":"module" to package.json
+I had tried this the day before but it didn't work but with simplified code I figured I would try it again.
+Added the line to package.json and it didn't work again.
+This time I had, "except" could not be found error.
+I was like wth so I checked my module install (npm list) 
+Yep the were there.
+hmmm...
+Was looking around and found post saying you are dumb you forgot to import chai into test.main.js
+Sigh again
+So I did import { expect } from 'chai' into test.main.js 
+And it worked! 
+Whew so many hours gone for chasing down this one.
+I learned a ton on npm commands modules ESM and the different ways to import export items in javascript.
+So I thought I would share in case someone else ran/runs into this problem with examples being out of date on js mocha/chai testing
+
+
+
+
