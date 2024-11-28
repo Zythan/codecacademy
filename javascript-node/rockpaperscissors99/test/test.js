@@ -66,7 +66,6 @@ describe('setPlayerMoves() - Main Functionality', function() {
 
   it('should set player one\'s moves with valid inputs', function() {
     setPlayerMoves('Player One', 'rock', 11, 'paper', 33, 'scissors', 55);
-
     should.equal(playerOneMoveOneType, 'rock');
     should.equal(playerOneMoveOneValue, 11);
     should.equal(playerOneMoveTwoType, 'paper');
@@ -76,8 +75,7 @@ describe('setPlayerMoves() - Main Functionality', function() {
   });
 
   it('should set player two\'s moves with valid inputs', function() {
-    setPlayerMoves('Player Two', 'rock', 11, 'paper', 33, 'scissors', 55);
-
+    setPlayerMoves('Player Two', 'rock', 11, 'paper', 33, 'scissors', 55)
     should.equal(playerTwoMoveOneType, 'rock');
     should.equal(playerTwoMoveOneValue, 11);
     should.equal(playerTwoMoveTwoType, 'paper');
@@ -212,7 +210,7 @@ describe('getRoundWinner() - Main Functionality', function() {
 
   it('should return the correct winner with two of the same move type and different values', function() {
     playerOneMoveOneType = 'scissors';
-    playerOneMoveOneValue = 1;
+    playerOneMoveOneValue = 1;    
     playerTwoMoveOneType = 'scissors';
     playerTwoMoveOneValue = 99;
 
@@ -262,6 +260,7 @@ describe('getRoundWinner() - Edge Cases', function() {
   });
 
   it('should return null if any move types or values are missing', function() {
+    console.count()
     playerOneMoveOneType = undefined;
     playerOneMoveOneValue = 1;
     playerTwoMoveOneType = 'rock';
