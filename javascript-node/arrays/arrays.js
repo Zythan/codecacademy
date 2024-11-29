@@ -14,5 +14,4 @@ console.log(secretMessage[0])
 secretMessage.splice(secretMessage.indexOf('get'),5,'know')
 console.log('-----')
 console.log(secretMessage.join(' '))
-//yep yep yep commit bitch
 
