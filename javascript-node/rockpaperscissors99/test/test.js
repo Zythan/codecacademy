@@ -47,7 +47,7 @@ describe('Player Moves', function() {
   it('a global variable called playerTwoMoveOneValue should exist and initialize to undefined', function() {
     should.equal(playerTwoMoveOneValue, undefined);
   });
-
+ 
   it('a global variable called playerTwoMoveTwoValue should exist and initialize to undefined', function() {
     should.equal(playerTwoMoveTwoValue, undefined);
   });
